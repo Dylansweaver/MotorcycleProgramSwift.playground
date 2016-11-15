@@ -3,16 +3,26 @@
 import UIKit
 
 
-//Manually Enter Destinations here
-var destinations: [String] =
+//Manually Enter Destinations and stops here
+var destinations: [[String:Any]] =
     [
-        "California",
-        "Chicago",
-        "Taco Bell"
-
+        [
+            "Destination": "California",
+            "Stops": "McDonalds\n"+"Las Vegas"
+            
+        ],
+        [
+            "Destination":"Hawaii",
+            "Stops": "Dunkin Donuts\n"+"Ferry"
+        ]
 ];
 
 
+//************************************
+
+//manually enter which Destination you want to see stops for
+var choice = 1
+//*****************************
 
 
 var j=0;
@@ -21,12 +31,18 @@ print("Destinations!")
 print("*************")
 print(" ")
 let size = destinations.count
+
+
 for i in 1...size
 {
-    
-print(j+1,". ",destinations[j]);
+
+print(j+1,". ",destinations[j]["Destination"]!)
     j++
 }
 
-var destinationSelection = 0;//Enter which destination to focus on
+print(" ")
+print(" ")
+print("Stops Along the Way to Destination")
+print("**********************************")
 
+print(destinations[choice - 1]["Stops"]!)
