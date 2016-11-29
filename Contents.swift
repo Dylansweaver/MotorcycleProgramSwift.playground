@@ -32,11 +32,8 @@ var destinations: [[String:Any]] =
 //******************************               ***********************************
 var choice = 1 //<<<<<<--------The Destination Number as seen in the List Displayed!
 //********************************************************************************
-
 var j=0;//intiating j for the for loop in the displaying of the Destinations
-
 //-------------------------------------------------------------------------------------------------
-
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 print("Destinations!")                  //^^^^ This Displays
 print("*************")                  //^^^^ the Destination
@@ -51,9 +48,7 @@ for i in 1...size                       //^^^^
     j++                                 //^^^^
 }                                       //^^^^
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 //-------------------------------------------------------------------------------------------------
-
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 print(" ")                              //<<<< This Displays
 print(" ")                              //<<<< the Stops along
@@ -62,9 +57,7 @@ print("**********************************")//< Chosen Destination
 //<<<<
 print(destinations[choice - 1]["Stops"]!)//<<<
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
 //-------------------------------------------------------------------------------------------------
-
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 print(" ")                                //>>>> This Displays
 print(" ")                                //>>>> what Items
@@ -72,9 +65,7 @@ print("Bring Along")                      //>>>> the User
 print("***********")                      //>>>> Wants to
 print(destinations[choice - 1]["Bring"]!) //>>>> Bring Along
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 //-------------------------------------------------------------------------------------------------
-
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 print(" ")                                //~~~~ This Displays
 print(" ")                                //~~~~ Cost of Trip
@@ -92,9 +83,7 @@ print(destinations[choice - 1]["Distance"]!,//~~
 
 
 
-
 //||||||||||||||||||||||||||||||||MESSING WITH MAPKIT|||||||||||||||||||||
-
 
 
 // set the zoom
@@ -106,8 +95,8 @@ let mapView = MKMapView( frame: frame )
 
 // create and populate a coordinate region struct
 var region = MKCoordinateRegion()
-region.center.latitude = 31.0
-region.center.longitude = -110.0
+region.center.latitude = 34.0522342
+region.center.longitude = -118.243
 
 // span defines the zoom
 region.span.latitudeDelta = delta
