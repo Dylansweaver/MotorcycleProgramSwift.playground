@@ -8,11 +8,13 @@ var destinations: [[String:Any]] =
         
         //Destination 1: California
         [
-            "Destination": "California",//final destination
+            "Destination": "La, California",//final destination
             "Stops": "McDonalds\n"+"Las Vegas",//stops along the way
             "Cost": 3000,//the cost in USD for the entire trip
             "Distance" : 500,//the total distance planned to travel one way
-            "Bring": " Shorts\n T-Shirts\n Swimwear\n Sunblock"//checklist of things to bring along on the trip
+            "Bring": " Shorts\n T-Shirts\n Swimwear\n Sunblock",//checklist of things to bring along on the trip
+            "Longitude": 34.0522,//for the Destination
+            "Latitude": 118.2437//for the Destination
         ],
         
         //Destination 2: Hawaii
@@ -26,6 +28,10 @@ var destinations: [[String:Any]] =
         //Add more Destiations here if Needed
 ];
 
+
+
+
+
 //manually enter which Destination you want to see
 //********************************************************************************
 //*************************                        *******************************
@@ -35,6 +41,13 @@ var choice = 1 //<<<<<<--------The Destination Number as seen in the List Displa
 //********************************************************************************
 var j=0;//intiating j for the for loop in the displaying of the Destinations
 //-------------------------------------------------------------------------------------------------
+
+let longitude:Double = destinations[choice-1]["Longitude"]!
+let latitude:Double = destinations[choice-1]["Latitude"]!
+
+
+
+
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 print("Destinations!")                  //^^^^ This Displays
 print("*************")                  //^^^^ the Destination
@@ -46,7 +59,7 @@ for i in 1...size                       //^^^^
 {                                       //^^^^
     //^^^^
     print(j+1,". ",destinations[j]["Destination"]!)
-    j++                                 //^^^^
+    j+=1                                 //^^^^
 }                                       //^^^^
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //-------------------------------------------------------------------------------------------------
@@ -81,26 +94,22 @@ print(destinations[choice - 1]["Distance"]!,//~~
 
 
 
-
 //||||||||||||||||||||||||||||||||MESSING WITH MAPKIT|||||||||||||||||||||
-let finalPin = CLLocationCoordinate2DMake(34.0522342,-118.243)//this is to set the final location
+let finalPin = CLLocationCoordinate2DMake(longitude,latitude)//this is to set the final location
 let stop1 = CLLocationCoordinate2DMake(34.0822342,-118.343)
 
 // set the zoom
 let delta = 1.75//sets the zoom into the map
 
-
 // set the size of the map
 let frame = CGRect( x:0, y:0, width:400, height:400 )//creates the fram for the map to be displayed in
 let mapView = MKMapView( frame: frame )//also for the frame
-
 
 // create and populate a coordinate region struct
 var region = MKCoordinateRegion()//for putting the location on the map
 //region.center.latitude = 34.0522342 //if wanten to do lat/long seperate
 //region.center.longitude = -118.243
 region.center = finalPin //uses the location declared above
-
 
 // span defines the zoom
 region.span.latitudeDelta = delta
