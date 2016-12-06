@@ -3,13 +3,12 @@ import MapKit
 import XCPlayground
 import Foundation
 
-
 //manually enter which Destination you want to see
 //********************************************************************************
 //*************************                        *******************************
 //************************* ENTER DESTINATION HERE *******************************
 //******************************               ***********************************
-                                 var choice = 1 //<<<<<<--------The Destination Number as seen in the List Displayed!
+                                 var choice = 2 //<<<<<<--------The Destination Number as seen in the List Displayed!
 //********************************************************************************
 
 //Manually Enter Destinations and stops here
@@ -30,7 +29,7 @@ var destinations: [[String:Any]] =
         
         //Destination 2: Hawaii
         [
-            "Destination":"Hawaii",
+            "Destination":"California 2",
             "Stops": "Dunkin Donuts",
             "Cost": 5000,
             "Distance": 2000,
@@ -133,7 +132,7 @@ mapView.setRegion( region, animated: true )
 //annotations
 let annotation2 = MKPointAnnotation()
 annotation2.coordinate = stop1
-annotation2.title = "Stop 1"
+annotation2.title = "Stop"
 let annotation = MKPointAnnotation()
 annotation.coordinate = finalPin
 annotation.title = "Final Destination"
@@ -142,7 +141,11 @@ annotation.subtitle = "LA, CA"
 mapView.addAnnotation(annotation2)
 mapView.addAnnotation(annotation)
 
-//XCPlaygroundPage.currentPage.liveView.map.addOverlay(polyline)
+
 
     // view the map in the timeline!
 XCPlaygroundPage.currentPage.liveView = mapView
+ 
+
+
+
