@@ -39,6 +39,7 @@ var destinations: [[String:Any]] =
         ]
         //Add more Destiations here if Needed
 ];
+//manually enter the stops locations here
 var stops =
     [[CLLocationCoordinate2DMake( 34.0822342,-118.343)
         ],
@@ -128,8 +129,7 @@ region.span.longitudeDelta = delta
 // inform the mapView of these edits
 mapView.setRegion( region, animated: true )
 
-
-//annotations
+//XXXXXXXXXXXX  Annotations Added Manually Here  XXXXXXXXXXXX
 let annotation2 = MKPointAnnotation()
 annotation2.coordinate = stop1
 annotation2.title = "Stop"
@@ -137,6 +137,7 @@ let annotation = MKPointAnnotation()
 annotation.coordinate = finalPin
 annotation.title = "Final Destination"
 annotation.subtitle = "LA, CA"
+//XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 mapView.addAnnotation(annotation2)
 mapView.addAnnotation(annotation)
