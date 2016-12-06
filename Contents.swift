@@ -2,34 +2,6 @@ import UIKit
 import MapKit
 import XCPlayground
 import Foundation
-//Manually Enter Destinations and stops here
-var destinations: [[String:Any]] =
-    [
-        
-        //Destination 1: California
-        [
-            "Destination": "La, California",//final destination
-            "Stops": "McDonalds\n"+"Las Vegas",//stops along the way
-            "Cost": 3000,//the cost in USD for the entire trip
-            "Distance" : 500,//the total distance planned to travel one way
-            "Bring": " Shorts\n T-Shirts\n Swimwear\n Sunblock",//checklist of things to bring along on the trip
-            "Longitude": 34.0522,//for the Destination
-            "Latitude": 118.2437//for the Destination
-        ],
-        
-        //Destination 2: Hawaii
-        [
-            "Destination":"Hawaii",
-            "Stops": "Dunkin Donuts\n Ferry",
-            "Cost": 5000,
-            "Distance": 2000,
-            "Bring": " Shorts\n T-Shirts\n Swimwear\n Sunblock\n Camera"
-        ]
-        //Add more Destiations here if Needed
-];
-
-
-
 
 
 //manually enter which Destination you want to see
@@ -37,17 +9,50 @@ var destinations: [[String:Any]] =
 //*************************                        *******************************
 //************************* ENTER DESTINATION HERE *******************************
 //******************************               ***********************************
-var choice = 1 //<<<<<<--------The Destination Number as seen in the List Displayed!
+                                 var choice = 1 //<<<<<<--------The Destination Number as seen in the List Displayed!
 //********************************************************************************
+
+//Manually Enter Destinations and stops here
+
+var destinations: [[String:Any]] =
+    [
+        
+        //Destination 1: California
+        [
+            "Destination": "California",//final destination
+            "Stops": "McDonalds",//stops along the way
+            "Cost": 3000,//the cost in USD for the entire trip
+            "Distance" : 500,//the total distance planned to travel one way
+            "Bring": " Shorts\n T-Shirts\n Swimwear\n Sunblock",//checklist of things to bring along on the trip
+            "Longitude": 34.0522,//for the final Destination
+            "Latitude": -118.2437//for the final Destination
+        ],
+        
+        //Destination 2: Hawaii
+        [
+            "Destination":"Hawaii",
+            "Stops": "Dunkin Donuts",
+            "Cost": 5000,
+            "Distance": 2000,
+            "Bring": " Shorts\n T-Shirts\n Swimwear\n Sunblock\n Camera",
+            "Longitude": 34.0522,
+            "Latitude": -118.2437
+        ]
+        //Add more Destiations here if Needed
+];
+var stops =
+    [[CLLocationCoordinate2DMake( 34.0822342,-118.343)
+        ],
+     [
+        CLLocationCoordinate2DMake(34.00,-118.5)
+        ]
+]
+
+
+
+
 var j=0;//intiating j for the for loop in the displaying of the Destinations
 //-------------------------------------------------------------------------------------------------
-
-let longitude:Double = destinations[choice-1]["Longitude"]!
-let latitude:Double = destinations[choice-1]["Latitude"]!
-
-
-
-
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 print("Destinations!")                  //^^^^ This Displays
 print("*************")                  //^^^^ the Destination
@@ -59,7 +64,7 @@ for i in 1...size                       //^^^^
 {                                       //^^^^
     //^^^^
     print(j+1,". ",destinations[j]["Destination"]!)
-    j+=1                                 //^^^^
+    j++                                 //^^^^
 }                                       //^^^^
 //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //-------------------------------------------------------------------------------------------------
@@ -95,8 +100,13 @@ print(destinations[choice - 1]["Distance"]!,//~~
 
 
 //||||||||||||||||||||||||||||||||MESSING WITH MAPKIT|||||||||||||||||||||
+
+var longitude = destinations[choice-1]["Longitude"] as! Double
+var latitude = destinations[choice-1]["Latitude"] as! Double
+
 let finalPin = CLLocationCoordinate2DMake(longitude,latitude)//this is to set the final location
-let stop1 = CLLocationCoordinate2DMake(34.0822342,-118.343)
+let stop1 = stops[choice-1][0]
+
 
 // set the zoom
 let delta = 1.75//sets the zoom into the map
@@ -131,5 +141,8 @@ annotation.subtitle = "LA, CA"
 
 mapView.addAnnotation(annotation2)
 mapView.addAnnotation(annotation)
-// view the map in the timeline!
+
+//XCPlaygroundPage.currentPage.liveView.map.addOverlay(polyline)
+
+    // view the map in the timeline!
 XCPlaygroundPage.currentPage.liveView = mapView
